@@ -1,15 +1,11 @@
-{
-  "name": "fcc-learn-node-with-express",
-  "version": "0.1.0",
-  "dependencies": {
-    "body-parser": "^1.15.2",
-    "cookie-parser": "^1.4.3",
-    "dotenv": "^16.0.1",
-    "express": "^4.14.0",
-    "w4j-express-bground": "https://github.com/Web4Jobs/boilerplate-backend-express-bground-pkg.git"
-  },
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  }
-}
+const express = require('express');
+const app = express();
+
+// Serve static assets from /public
+app.use('/public', express.static(__dirname + '/public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
+module.exports = app;

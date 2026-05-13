@@ -1,6 +1,16 @@
 let express = require('express');
 let app = express();
+const express = require('express');
+const app = express();
 
+// Serve static assets from /public
+app.use('/public', express.static(__dirname + '/public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
+module.exports = app;
 
 
 
